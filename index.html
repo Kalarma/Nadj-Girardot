@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nadège Girardot — Scénariste & Autrice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #0e0d0b;
+      --paper:  #f5f0e8;
+      --warm:   #c8a96e;
+      --warm2:  #e8d5b0;
+      --muted:  #7a7060;
+      --line:   rgba(200,169,110,.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ─────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: .04;
+      pointer-events: none;
+    }
+
+    section, nav, footer { position: relative; z-index: 1; }
+
+    /* ── NAV ────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 4rem;
+      backdrop-filter: blur(12px);
+      background: rgba(14,13,11,.7);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: .15em;
+      color: var(--warm);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--warm2);
+      text-decoration: none;
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: .75;
+      transition: opacity .2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--warm); }
+
+    /* ── HERO ───────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      gap: 4rem;
+    }
+
+    .hero-text { max-width: 560px; }
+
+    .hero-eyebrow {
+      font-size: .72rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px; height: 1px;
+      background: var(--warm);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--warm);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--warm2);
+      opacity: .85;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .85rem 2rem;
+      border: 1px solid var(--warm);
+      color: var(--warm);
+      text-decoration: none;
+      font-size: .8rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      transition: background .25s, color .25s;
+    }
+    .hero-cta:hover { background: var(--warm); color: var(--ink); }
+    .hero-cta svg { transition: transform .25s; }
+    .hero-cta:hover svg { transform: translateX(4px); }
+
+    /* ── HERO RIGHT : animated filmstrip ───────────── */
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      overflow: hidden;
+      height: 520px;
+    }
+
+    .filmstrip {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      animation: scrollUp 18s linear infinite;
+    }
+    @keyframes scrollUp {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+
+    .film-card {
+      width: 280px;
+      background: rgba(245,240,232,.06);
+      border: 1px solid var(--line);
+      padding: 1rem 1.25rem;
+    }
+
+    .film-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--warm);
+      margin-bottom: .25rem;
+    }
+    .film-card-meta {
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .05em;
+    }
+
+    /* ── DIVIDER ────────────────────────────────────── */
+    .divider {
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--warm), transparent);
+      margin: 0 auto 5rem;
+    }
+
+    /* ── ABOUT ──────────────────────────────────────── */
+    #about {
+      padding: 6rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      align-items: start;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      font-size: .7rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--warm);
+      padding-top: .4rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-body p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--warm2);
+      opacity: .85;
+      margin-bottom: 1rem;
+    }
+
+    .stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--warm);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .72rem;
+      letter-spacing: .1em;
+      color: var(--muted);
+      margin-top: .25rem;
+    }
+
+    /* ── WORKS ──────────────────────────────────────── */
+    #works {
+      padding: 6rem 4rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .works-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      margin-bottom: 4rem;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .work-category {
+      background: rgba(245,240,232,.04);
+      border: 1px solid var(--line);
+      padding: 2rem;
+      transition: border-color .3s;
+    }
+    .work-category:hover { border-color: var(--warm); }
+
+    .cat-label {
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 1.25rem;
+      padding-bottom: .75rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .work-item {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(200,169,110,.1);
+    }
+    .work-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+    .work-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--warm2);
+      margin-bottom: .2rem;
+    }
+    .work-detail {
+      font-size: .72rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .work-year {
+      font-size: .65rem;
+      letter-spacing: .1em;
+      color: var(--warm);
+      opacity: .7;
+      margin-bottom: .15rem;
+    }
+
+    /* ── TIMELINE ───────────────────────────────────── */
+    #parcours {
+      padding: 6rem 4rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      margin-bottom: 4rem;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 1px solid var(--line);
+      padding-left: 2.5rem;
+      margin-left: calc(33.33% + 5rem / 2);
+    }
+
+    .tl-item {
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: .35rem;
+      transform: translateX(-50%);
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--warm);
+      border: 2px solid var(--ink);
+      box-shadow: 0 0 0 1px var(--warm);
+    }
+
+    .tl-year {
+      font-size: .7rem;
+      letter-spacing: .15em;
+      color: var(--warm);
+      margin-bottom: .4rem;
+    }
+    .tl-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--warm2);
+      margin-bottom: .2rem;
+    }
+    .tl-desc {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CONTACT ────────────────────────────────────── */
+    #contact {
+      padding: 6rem 4rem;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .contact-text h2 { margin-bottom: 1rem; }
+    .contact-text p {
+      color: var(--warm2);
+      opacity: .8;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-agency {
+      background: rgba(245,240,232,.04);
+      border: 1px solid var(--line);
+      padding: 2rem;
+    }
+    .agency-label {
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 1.25rem;
+    }
+    .agency-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      margin-bottom: .5rem;
+    }
+    .agency-detail {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .agency-detail a { color: var(--warm); text-decoration: none; }
+    .agency-detail a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ─────────────────────────────────────── */
+    footer {
+      padding: 2rem 4rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .95rem;
+      color: var(--warm);
+      letter-spacing: .1em;
+    }
+
+    .footer-copy {
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+    }
+
+    /* ── ANIMATIONS ─────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+
+      #hero {
+        grid-template-columns: 1fr;
+        padding: 7rem 1.5rem 3rem;
+        text-align: center;
+      }
+      .hero-eyebrow { justify-content: center; }
+      .hero-sub { margin: 0 auto 2rem; }
+      .hero-visual { display: none; }
+
+      #about, .works-header, .timeline-header, #contact {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 4rem 1.5rem;
+      }
+
+      #works { padding: 4rem 1.5rem; }
+      .works-grid { grid-template-columns: 1fr; }
+
+      #parcours { padding: 4rem 1.5rem; }
+      .timeline { margin-left: 0; }
+
+      .stats { flex-wrap: wrap; gap: 1.5rem; }
+
+      footer { padding: 1.5rem; flex-direction: column; gap: .75rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">N. Girardot</a>
+    <ul class="nav-links">
+      <li><a href="#about">Présentation</a></li>
+      <li><a href="#works">Œuvres</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-text fade-in">
+      <p class="hero-eyebrow">Scénariste · Autrice · Graphiste</p>
+      <h1>Nadège<br /><em>Girardot</em></h1>
+      <p class="hero-sub">
+        Vingt ans d'écriture au service de l'animation française.
+        Co-autrice de plus d'une centaine d'épisodes, de bibles littéraires
+        et de longs-métrages qui font voyager petits et grands.
+      </p>
+      <a href="#works" class="hero-cta">
+        Voir les œuvres
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Animated filmstrip -->
+    <div class="hero-visual fade-in" style="animation-delay:.2s">
+      <div class="filmstrip">
+        <!-- Doubled for seamless loop -->
+        <div class="film-card"><p class="film-card-title">Galaktic Football</p><p class="film-card-meta">78 × 26′ · ALPHANIM · 2001–2017</p></div>
+        <div class="film-card"><p class="film-card-title">Kididoc</p><p class="film-card-meta">52 × 13′ · 4.21 Productions / Canal+ · 2021–2022</p></div>
+        <div class="film-card"><p class="film-card-title">Mouk</p><p class="film-card-meta">15 épisodes · MILLIMAGES / France 5 · 2011</p></div>
+        <div class="film-card"><p class="film-card-title">Tino</p><p class="film-card-meta">Long-métrage · PM SA · 2022–2023</p></div>
+        <div class="film-card"><p class="film-card-title">Zak &amp; Wowo, La Légende de Lendarys</p><p class="film-card-meta">Long-métrage · PM S.A. · 2019</p></div>
+        <div class="film-card"><p class="film-card-title">Tchoupi (Saison 4)</p><p class="film-card-meta">10 épisodes · LES ARMATEURS / France 5</p></div>
+        <div class="film-card"><p class="film-card-title">Crumpets</p><p class="film-card-meta">16 épisodes · 4.21 Productions / Canal+</p></div>
+        <div class="film-card"><p class="film-card-title">Anatole Latuile</p><p class="film-card-meta">10 épisodes · LABEL ANIM / France TV</p></div>
+        <!-- Duplicate for loop -->
+        <div class="film-card"><p class="film-card-title">Galaktic Football</p><p class="film-card-meta">78 × 26′ · ALPHANIM · 2001–2017</p></div>
+        <div class="film-card"><p class="film-card-title">Kididoc</p><p class="film-card-meta">52 × 13′ · 4.21 Productions / Canal+ · 2021–2022</p></div>
+        <div class="film-card"><p class="film-card-title">Mouk</p><p class="film-card-meta">15 épisodes · MILLIMAGES / France 5 · 2011</p></div>
+        <div class="film-card"><p class="film-card-title">Tino</p><p class="film-card-meta">Long-métrage · PM SA · 2022–2023</p></div>
+        <div class="film-card"><p class="film-card-title">Zak &amp; Wowo, La Légende de Lendarys</p><p class="film-card-meta">Long-métrage · PM S.A. · 2019</p></div>
+        <div class="film-card"><p class="film-card-title">Tchoupi (Saison 4)</p><p class="film-card-meta">10 épisodes · LES ARMATEURS / France 5</p></div>
+        <div class="film-card"><p class="film-card-title">Crumpets</p><p class="film-card-meta">16 épisodes · 4.21 Productions / Canal+</p></div>
+        <div class="film-card"><p class="film-card-title">Anatole Latuile</p><p class="film-card-meta">10 épisodes · LABEL ANIM / France TV</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label fade-in">Présentation</div>
+    <div class="about-body fade-in">
+      <h2>Une plume au service<br />de l'animation</h2>
+      <p>
+        Nadège Girardot est scénariste, autrice et directrice d'écriture spécialisée dans l'animation pour la jeunesse. Depuis 2001, elle collabore avec les plus grandes maisons de production françaises — Millimages, Canal+, France Télévisions, Alphanim — pour donner vie à des univers qui marquent les imaginaires.
+      </p>
+      <p>
+        Co-autrice de la bible littéraire et de la bible graphique de la série <em>Galaktic Football</em>, elle a développé sur trois saisons les arches narratives de ce titre culte. Elle a récemment assumé la direction d'écriture de <em>Kididoc</em> (Canal+), co-écrivant plus de 30 épisodes et structurant la vision éditoriale de la série.
+      </p>
+      <p>
+        Formée à l'Université Paris VIII (théâtre, danse) puis au scénario long-métrage (CEFPF), elle conjugue sensibilité artistique et rigueur narrative dans chacun de ses projets.
+      </p>
+      <div class="stats">
+        <div>
+          <p class="stat-num">+100</p>
+          <p class="stat-label">épisodes écrits</p>
+        </div>
+        <div>
+          <p class="stat-num">20+</p>
+          <p class="stat-label">ans d'expérience</p>
+        </div>
+        <div>
+          <p class="stat-num">2</p>
+          <p class="stat-label">longs-métrages</p>
+        </div>
+        <div>
+          <p class="stat-num">25+</p>
+          <p class="stat-label">séries différentes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section id="works">
+    <div class="works-header">
+      <div class="section-label fade-in">Œuvres</div>
+      <div class="fade-in">
+        <h2>Filmographie<br />&amp; projets</h2>
+      </div>
+    </div>
+
+    <div class="works-grid">
+      <!-- CINÉMA -->
+      <div class="work-category fade-in">
+        <p class="cat-label">Cinéma – Long-Métrage</p>
+        <div class="work-item">
+          <p class="work-year">2022–2023</p>
+          <p class="work-title">Tino</p>
+          <p class="work-detail">Scénario co-écrit avec Vanessa Pancrazi · PM SA</p>
+        </div>
+        <div class="work-item">
+          <p class="work-year">2019</p>
+          <p class="work-title">Zak &amp; Wowo, La Légende de Lendarys</p>
+          <p class="work-detail">Scénario co-écrit avec Philippe Duchêne · PM S.A.</p>
+        </div>
+      </div>
+
+      <!-- ANIMATION RÉCENTE -->
+      <div class="work-category fade-in">
+        <p class="cat-label">Animation – Récent</p>
+        <div class="work-item">
+          <p class="work-year">En cours</p>
+          <p class="work-title">Kididoc (Saison 2)</p>
+          <p class="work-detail">4.21 Productions / Canal+</p>
+        </div>
+        <div class="work-item">
+          <p class="work-year">En cours</p>
+          <p class="work-title">Les Sapio</p>
+          <p class="work-detail">40 × 3′ · Bible littéraire · 4.21 Productions</p>
+        </div>
+        <div class="work-item">
+          <p class="work-year">2021–2022</p>
+          <p class="work-title">Kididoc</p>
+          <p class="work-detail">52 × 13′ · 33 épisodes · 4.21 Productions / Canal+</p>
+        </div>
+        <div class="work-item">
+          <p class="work-year">2020</p>
+          <p class="work-title">Pirata et Capitano (S2)</p>
+          <p class="work-detail">4 épisodes · MILLIMAGES / FTV</p>
+        </div>
+      </div>
+
+      <!-- ANIMATION CLASSIQUES -->
+      <div class="work-category fade-in">
+        <p class="cat-label">Animation – Références</p>
+        <div class="work-item">
+          <p class="work-year">2001–2017</p>
+          <p class="work-title">Galaktic Football (S1–3)</p>
+          <p class="work-detail">78 × 26′ · Bible litté. &amp; graphique · ALPHANIM / France TV / Jetix</p>
+        </div>
+        <div class="work-item">
+          <p class="work-year">2011</p>
+          <p class="work-title">Mouk</p>
+          <p class="work-detail">15 épisodes · MILLIMAGES / France 5</p>
+        </div>
+        <div class="work-item">
+          <p class="work-year">—</p>
+          <p class="work-title">Tchoupi (S4) · Crumpets · Anatole Latuile</p>
+          <p class="work-detail">Plusieurs épisodes · Canal+ / France TV</p>
+        </div>
+        <div class="work-item">
+          <p class="work-year">—</p>
+          <p class="work-title">Zoolane · Mouk S2 · Grenadine et Mentalo…</p>
+          <p class="work-detail">BBC / France 5 / Canal+</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section id="parcours">
+    <div class="timeline-header">
+      <div class="section-label fade-in">Parcours</div>
+      <div class="fade-in"><h2>Formation<br />&amp; activités</h2></div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item fade-in">
+        <p class="tl-year">2021 — aujourd'hui</p>
+        <p class="tl-title">Directrice d'écriture — Kididoc</p>
+        <p class="tl-desc">4.21 Productions / Canal+ · Pilotage éditorial de la série et co-écriture de 33 épisodes.</p>
+      </div>
+      <div class="tl-item fade-in">
+        <p class="tl-year">2016–2017</p>
+        <p class="tl-title">Intervenante — Université Paris VIII (ATI)</p>
+        <p class="tl-desc">Cours de scénario et suivi de projets étudiants.</p>
+      </div>
+      <div class="tl-item fade-in">
+        <p class="tl-year">2013</p>
+        <p class="tl-title">Autrice de théâtre — <em>Tête de Nuage</em></p>
+        <p class="tl-desc">Pièce créée avec la Compagnie Les Damoizailes, présentée au Festival Off d'Avignon.</p>
+      </div>
+      <div class="tl-item fade-in">
+        <p class="tl-year">2001–2006</p>
+        <p class="tl-title">Graphiste animation</p>
+        <p class="tl-desc">Designs personnages, décors, story-boards pour Gaumont Multimédia, 2 Minutes, Method Films et d'autres.</p>
+      </div>
+      <div class="tl-item fade-in">
+        <p class="tl-year">2001–2004</p>
+        <p class="tl-title">Ateliers d'écriture &amp; illustration</p>
+        <p class="tl-desc">Interventions avec des enfants et des femmes incarcérées à Amiens.</p>
+      </div>
+      <div class="tl-item fade-in">
+        <p class="tl-year">2001</p>
+        <p class="tl-title">Formation scénario long-métrage</p>
+        <p class="tl-desc">CEFPF Paris.</p>
+      </div>
+      <div class="tl-item fade-in">
+        <p class="tl-year">1993–1997</p>
+        <p class="tl-title">DEUG Théâtre + Licence Danse</p>
+        <p class="tl-desc">Université Paris VIII.</p>
+      </div>
+      <div class="tl-item fade-in">
+        <p class="tl-year">1992</p>
+        <p class="tl-title">BTS Plasticien de l'environnement architectural</p>
+        <p class="tl-desc">École Duppéré, Paris.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-text fade-in">
+      <div class="section-label" style="margin-bottom:1.5rem">Contact</div>
+      <h2>Travailler<br />ensemble</h2>
+      <p>
+        Pour toute demande de collaboration, projet de série ou de long-métrage,
+        Nadège Girardot est représentée par l'Agence Kamaji à Paris.
+      </p>
+      <a href="https://www.agence-kamaji.com/auteurs/nadege-girardot/" target="_blank" class="hero-cta">
+        Voir la fiche Agence Kamaji
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="contact-agency fade-in">
+      <p class="agency-label">Représentation</p>
+      <p class="agency-name">Agence Kamaji</p>
+      <div class="agency-detail">
+        <p>63 rue de Chabrol<br />75010 Paris</p>
+        <br/>
+        <p>
+          <a href="tel:+33688478346">+33 (0)6 88 47 83 46</a><br />
+          <a href="https://www.agence-kamaji.com" target="_blank">www.agence-kamaji.com</a>
+        </p>
+        <br/>
+        <p>
+          Retrouvez Nadège Girardot sur
+          <a href="https://www.imdb.com/name/nm1164806/" target="_blank">IMDb</a>
+          &amp;
+          <a href="https://www.unifrance.org/annuaires/personne/491468/nadege-girardot" target="_blank">UniFrance</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Nadège Girardot</span>
+    <span class="footer-copy">© 2025 · Scénariste &amp; Autrice · Animation française</span>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
