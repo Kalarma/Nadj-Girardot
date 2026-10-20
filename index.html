@@ -3,10 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nadège Girardot — Scénariste & Autrice</title>
+  <title>Nadège Girardot — Scénariste &amp; Autrice d'animation</title>
+  <meta name="description" content="Nadège Girardot, scénariste et autrice de séries et de longs-métrages d'animation depuis 2001 : Galactik Football, Kididoc, Mouk, Tchoupi, Zak &amp; Wowo. Représentée par l'Agence Kamaji." />
+  <meta name="theme-color" content="#0e0d0b" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="Nadège Girardot — Scénariste &amp; Autrice d'animation" />
+  <meta property="og:description" content="Vingt-cinq ans d'écriture pour l'animation jeunesse : Galactik Football, Kididoc, Mouk, Tchoupi, Zak &amp; Wowo…" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230e0d0b'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='30' font-style='italic' text-anchor='middle' fill='%23c8a96e'%3ENG%3C/text%3E%3C/svg%3E" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script>document.documentElement.classList.add('js');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nadège Girardot",
+    "jobTitle": "Scénariste et autrice de séries et longs-métrages d'animation",
+    "description": "Scénariste d'animation jeunesse depuis 2001, co-autrice de Galactik Football, directrice d'écriture de Kididoc.",
+    "knowsAbout": ["Scénario", "Animation jeunesse", "Direction d'écriture", "Bible littéraire", "Long-métrage d'animation"],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Université Paris VIII" },
+      { "@type": "EducationalOrganization", "name": "CEFPF Paris" }
+    ],
+    "sameAs": [
+      "https://www.agence-kamaji.com/auteurs/nadege-girardot/",
+      "https://www.imdb.com/name/nm1164806/",
+      "https://www.unifrance.org/annuaires/personne/491468/nadege-girardot"
+    ]
+  }
+  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,19 +46,27 @@
       --paper:  #f5f0e8;
       --warm:   #c8a96e;
       --warm2:  #e8d5b0;
-      --muted:  #7a7060;
-      --line:   rgba(200,169,110,.3);
+      --muted:  #a39884;
+      --line:   rgba(200,169,110,.28);
+      --line2:  rgba(200,169,110,.12);
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --sans:   'DM Sans', system-ui, sans-serif;
+      --pad:    clamp(1.25rem, 5vw, 4rem);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 
     body {
       background: var(--ink);
       color: var(--paper);
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--sans);
       font-weight: 300;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
+
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
 
     /* ── NOISE OVERLAY ─────────────────────────────── */
     body::before {
@@ -41,18 +79,32 @@
 
     section, nav, footer { position: relative; z-index: 1; }
 
+    .skip {
+      position: absolute; left: 1rem; top: -4rem; z-index: 300;
+      background: var(--warm); color: var(--ink);
+      padding: .6rem 1rem; font-size: .8rem; text-decoration: none;
+      transition: top .2s;
+    }
+    .skip:focus { top: 1rem; }
+
+    .progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0;
+      background: var(--warm); z-index: 200;
+    }
+
     /* ── NAV ────────────────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.5rem 4rem;
+      padding: 1.25rem var(--pad);
       backdrop-filter: blur(12px);
-      background: rgba(14,13,11,.7);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(14,13,11,.78);
       border-bottom: 1px solid var(--line);
     }
 
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: var(--serif);
       font-size: 1.1rem;
       letter-spacing: .15em;
       color: var(--warm);
@@ -60,144 +112,36 @@
       text-decoration: none;
     }
 
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
     .nav-links a {
       color: var(--warm2);
       text-decoration: none;
-      font-size: .78rem;
+      font-size: .76rem;
       letter-spacing: .12em;
       text-transform: uppercase;
-      opacity: .75;
-      transition: opacity .2s;
+      opacity: .7;
+      padding: .4rem 0;
+      border-bottom: 1px solid transparent;
+      transition: opacity .2s, border-color .2s;
     }
-    .nav-links a:hover { opacity: 1; color: var(--warm); }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--warm); }
+    .nav-links a.active { border-bottom-color: var(--warm); }
 
-    /* ── HERO ───────────────────────────────────────── */
-    #hero {
-      min-height: 100vh;
+    .nav-toggle {
+      display: none;
+      background: none; border: 1px solid var(--line); color: var(--warm);
+      width: 42px; height: 42px; cursor: pointer;
+      align-items: center; justify-content: center;
+    }
+
+    /* ── LAYOUT HELPERS ─────────────────────────────── */
+    .wrap { max-width: 1240px; margin: 0 auto; }
+    .sec { padding: clamp(4rem, 9vw, 7rem) var(--pad); border-top: 1px solid var(--line); }
+    .split {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 8rem 4rem 4rem;
-      gap: 4rem;
-    }
-
-    .hero-text { max-width: 560px; }
-
-    .hero-eyebrow {
-      font-size: .72rem;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: var(--warm);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 40px; height: 1px;
-      background: var(--warm);
-    }
-
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 6vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      margin-bottom: 1.5rem;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: var(--warm);
-    }
-
-    .hero-sub {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--warm2);
-      opacity: .85;
-      max-width: 440px;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: .75rem;
-      padding: .85rem 2rem;
-      border: 1px solid var(--warm);
-      color: var(--warm);
-      text-decoration: none;
-      font-size: .8rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      transition: background .25s, color .25s;
-    }
-    .hero-cta:hover { background: var(--warm); color: var(--ink); }
-    .hero-cta svg { transition: transform .25s; }
-    .hero-cta:hover svg { transform: translateX(4px); }
-
-    /* ── HERO RIGHT : animated filmstrip ───────────── */
-    .hero-visual {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      overflow: hidden;
-      height: 520px;
-    }
-
-    .filmstrip {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      animation: scrollUp 18s linear infinite;
-    }
-    @keyframes scrollUp {
-      0%   { transform: translateY(0); }
-      100% { transform: translateY(-50%); }
-    }
-
-    .film-card {
-      width: 280px;
-      background: rgba(245,240,232,.06);
-      border: 1px solid var(--line);
-      padding: 1rem 1.25rem;
-    }
-
-    .film-card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--warm);
-      margin-bottom: .25rem;
-    }
-    .film-card-meta {
-      font-size: .72rem;
-      color: var(--muted);
-      letter-spacing: .05em;
-    }
-
-    /* ── DIVIDER ────────────────────────────────────── */
-    .divider {
-      width: 1px;
-      height: 80px;
-      background: linear-gradient(to bottom, transparent, var(--warm), transparent);
-      margin: 0 auto 5rem;
-    }
-
-    /* ── ABOUT ──────────────────────────────────────── */
-    #about {
-      padding: 6rem 4rem;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 5rem;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr);
+      gap: clamp(2rem, 5vw, 5rem);
       align-items: start;
-      border-top: 1px solid var(--line);
     }
 
     .section-label {
@@ -205,545 +149,823 @@
       letter-spacing: .3em;
       text-transform: uppercase;
       color: var(--warm);
-      padding-top: .4rem;
+      padding-top: .6rem;
     }
 
     h2 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: var(--serif);
       font-size: clamp(2rem, 3.5vw, 3rem);
       font-weight: 300;
       line-height: 1.2;
       margin-bottom: 1.5rem;
     }
+    h2 em { font-style: italic; color: var(--warm); }
 
-    .about-body p {
-      font-size: 1rem;
-      line-height: 1.9;
-      color: var(--warm2);
-      opacity: .85;
-      margin-bottom: 1rem;
+    /* ── HERO ───────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      padding: 8rem var(--pad) 4rem;
+      gap: 4rem;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .hero-wrap { border-top: 0; }
+
+    .hero-text { max-width: 580px; }
+
+    .hero-eyebrow {
+      font-size: .72rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 40px; height: 1px; background: var(--warm);
     }
 
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-weight: 300;
+      line-height: 1.02;
+      margin-bottom: 1.5rem;
+    }
+    h1 em { font-style: italic; color: var(--warm); }
+
+    .hero-sub {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: var(--warm2);
+      opacity: .88;
+      max-width: 470px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .75rem;
+      padding: .85rem 2rem;
+      border: 1px solid var(--warm);
+      color: var(--warm);
+      text-decoration: none;
+      font-size: .78rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      transition: background .25s, color .25s;
+    }
+    .btn:hover { background: var(--warm); color: var(--ink); }
+    .btn svg { transition: transform .25s; flex-shrink: 0; }
+    .btn:hover svg { transform: translateX(4px); }
+    .btn.ghost { border-color: var(--line); color: var(--warm2); }
+    .btn.ghost:hover { border-color: var(--warm); background: transparent; color: var(--warm); }
+
+    /* hero filmstrip */
+    .hero-visual {
+      height: 540px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+              mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+    }
+    .filmstrip { animation: scrollUp 34s linear infinite; }
+    .hero-visual:hover .filmstrip { animation-play-state: paused; }
+    @keyframes scrollUp {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+    .film-card {
+      margin: 0 auto 12px;
+      max-width: 330px;
+      background: rgba(245,240,232,.05);
+      border: 1px solid var(--line);
+      padding: 1.1rem 1.35rem;
+    }
+    .film-card-title { font-family: var(--serif); font-size: 1.15rem; color: var(--warm); margin-bottom: .25rem; }
+    .film-card-meta  { font-size: .74rem; color: var(--muted); letter-spacing: .04em; line-height: 1.5; }
+
+    /* ── ABOUT ──────────────────────────────────────── */
+    .about-body p {
+      font-size: 1.02rem;
+      line-height: 1.9;
+      color: var(--warm2);
+      opacity: .88;
+      margin-bottom: 1.1rem;
+      max-width: 62ch;
+    }
+    .about-body p em { font-style: italic; color: var(--paper); }
+
     .stats {
-      display: flex;
-      gap: 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      justify-content: start;
+      gap: 1.5rem 3.5rem;
       margin-top: 2.5rem;
       padding-top: 2rem;
       border-top: 1px solid var(--line);
     }
+    .stat-num { font-family: var(--serif); font-size: 2.75rem; color: var(--warm); line-height: 1; }
+    .stat-label { font-size: .72rem; letter-spacing: .1em; color: var(--muted); margin-top: .35rem; }
 
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      color: var(--warm);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: .72rem;
-      letter-spacing: .1em;
-      color: var(--muted);
-      margin-top: .25rem;
-    }
-
-    /* ── WORKS ──────────────────────────────────────── */
-    #works {
-      padding: 6rem 4rem;
-      border-top: 1px solid var(--line);
-    }
-
-    .works-header {
+    /* ── MÉTIERS ────────────────────────────────────── */
+    .skills {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 5rem;
-      margin-bottom: 4rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
     }
+    .skill { background: var(--ink); padding: 2rem 1.6rem; }
+    .skill-n { font-family: var(--serif); font-style: italic; color: var(--warm); font-size: 1.1rem; margin-bottom: 1rem; }
+    .skill h3 { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; color: var(--paper); margin-bottom: .7rem; line-height: 1.2; }
+    .skill p { font-size: .84rem; line-height: 1.75; color: var(--muted); }
 
-    .works-grid {
+    /* ── FEATURED WORKS ─────────────────────────────── */
+    .works-head { margin-bottom: 3.5rem; }
+    .featured {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
-
-    .work-category {
+    .work-card {
+      display: flex; flex-direction: column;
       background: rgba(245,240,232,.04);
       border: 1px solid var(--line);
       padding: 2rem;
-      transition: border-color .3s;
+      transition: border-color .3s, transform .3s, background .3s;
     }
-    .work-category:hover { border-color: var(--warm); }
+    .work-card:hover { border-color: var(--warm); transform: translateY(-4px); background: rgba(245,240,232,.07); }
+    .work-kind {
+      font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--warm);
+      padding-bottom: .85rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--line);
+    }
+    .work-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; line-height: 1.15; color: var(--paper); margin-bottom: .75rem; }
+    .work-role { font-size: .74rem; letter-spacing: .08em; color: var(--warm); margin-bottom: .9rem; }
+    .work-blurb { font-size: .86rem; line-height: 1.75; color: var(--warm2); opacity: .8; flex: 1; }
+    .work-meta { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line2); font-size: .72rem; color: var(--muted); line-height: 1.6; }
 
-    .cat-label {
-      font-size: .65rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--warm);
-      margin-bottom: 1.25rem;
-      padding-bottom: .75rem;
-      border-bottom: 1px solid var(--line);
+    /* ── FILMOGRAPHY ────────────────────────────────── */
+    .filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.5rem; }
+    .chip {
+      font: inherit; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+      background: none; color: var(--warm2);
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: .5rem 1.1rem; cursor: pointer;
+      transition: background .2s, color .2s, border-color .2s;
     }
+    .chip:hover { border-color: var(--warm); }
+    .chip[aria-pressed="true"] { background: var(--warm); border-color: var(--warm); color: var(--ink); }
+    .chip small { opacity: .6; margin-left: .35rem; font-size: .68rem; }
 
-    .work-item {
-      margin-bottom: 1.25rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid rgba(200,169,110,.1);
+    .filmo-group { margin-bottom: 3rem; }
+    .filmo-group h3 {
+      font-family: var(--serif); font-weight: 400; font-style: italic;
+      font-size: 1.35rem; color: var(--warm); margin-bottom: .5rem;
     }
-    .work-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .filmo-row {
+      display: grid;
+      grid-template-columns: 6.5rem minmax(0, 1fr) minmax(0, 13rem);
+      gap: 1.25rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--line2);
+      align-items: baseline;
+    }
+    .filmo-year { font-size: .72rem; letter-spacing: .1em; color: var(--warm); opacity: .85; }
+    .filmo-title { font-family: var(--serif); font-size: 1.2rem; color: var(--warm2); line-height: 1.3; }
+    .filmo-detail { font-size: .8rem; color: var(--muted); line-height: 1.6; margin-top: .2rem; }
+    .filmo-prod { font-size: .74rem; color: var(--muted); letter-spacing: .03em; line-height: 1.5; text-align: right; }
+    .tag {
+      display: inline-block; margin-left: .6rem; vertical-align: middle;
+      font-family: var(--sans); font-size: .58rem; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--warm); border: 1px solid var(--line); padding: .15rem .5rem;
+    }
+    .source-note { font-size: .76rem; color: var(--muted); margin-top: 1rem; }
+    .source-note a { color: var(--warm); }
 
-    .work-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--warm2);
-      margin-bottom: .2rem;
+    /* ── PARTNERS ───────────────────────────────────── */
+    .partners-block + .partners-block { margin-top: 2.5rem; }
+    .partners-block h3 {
+      font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 400;
+      color: var(--warm); margin-bottom: 1rem;
     }
-    .work-detail {
-      font-size: .72rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-    .work-year {
-      font-size: .65rem;
-      letter-spacing: .1em;
-      color: var(--warm);
-      opacity: .7;
-      margin-bottom: .15rem;
+    .partners-list { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem .5rem; }
+    .partners-list li {
+      font-family: var(--serif); font-size: 1.1rem; color: var(--warm2);
+      border: 1px solid var(--line2); padding: .35rem .9rem;
     }
 
     /* ── TIMELINE ───────────────────────────────────── */
-    #parcours {
-      padding: 6rem 4rem;
-      border-top: 1px solid var(--line);
-    }
-
-    .timeline-header {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 5rem;
-      margin-bottom: 4rem;
-    }
-
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border-left: 1px solid var(--line);
-      padding-left: 2.5rem;
-      margin-left: calc(33.33% + 5rem / 2);
-    }
-
-    .tl-item {
-      position: relative;
-      padding-bottom: 2.5rem;
-    }
+    .timeline { border-left: 1px solid var(--line); padding-left: 2.5rem; }
+    .tl-item { position: relative; padding-bottom: 2.4rem; }
+    .tl-item:last-child { padding-bottom: 0; }
     .tl-item::before {
-      content: '';
-      position: absolute;
-      left: -2.5rem;
-      top: .35rem;
-      transform: translateX(-50%);
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--warm);
-      border: 2px solid var(--ink);
-      box-shadow: 0 0 0 1px var(--warm);
+      content: ''; position: absolute; left: -2.5rem; top: .35rem; transform: translateX(-50%);
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--warm); border: 2px solid var(--ink); box-shadow: 0 0 0 1px var(--warm);
     }
-
-    .tl-year {
-      font-size: .7rem;
-      letter-spacing: .15em;
-      color: var(--warm);
-      margin-bottom: .4rem;
-    }
-    .tl-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--warm2);
-      margin-bottom: .2rem;
-    }
-    .tl-desc {
-      font-size: .82rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .tl-year { font-size: .7rem; letter-spacing: .15em; color: var(--warm); margin-bottom: .4rem; }
+    .tl-title { font-family: var(--serif); font-size: 1.2rem; color: var(--warm2); margin-bottom: .25rem; }
+    .tl-desc { font-size: .84rem; color: var(--muted); line-height: 1.7; max-width: 60ch; }
 
     /* ── CONTACT ────────────────────────────────────── */
-    #contact {
-      padding: 6rem 4rem;
-      border-top: 1px solid var(--line);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+    .contact-text p { color: var(--warm2); opacity: .85; line-height: 1.8; margin-bottom: 1.75rem; max-width: 46ch; }
+    .contact-text .hero-actions { margin-top: .5rem; }
 
-    .contact-text h2 { margin-bottom: 1rem; }
-    .contact-text p {
-      color: var(--warm2);
-      opacity: .8;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-agency {
-      background: rgba(245,240,232,.04);
-      border: 1px solid var(--line);
-      padding: 2rem;
-    }
-    .agency-label {
-      font-size: .65rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--warm);
-      margin-bottom: 1.25rem;
-    }
-    .agency-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      margin-bottom: .5rem;
-    }
-    .agency-detail {
-      font-size: .82rem;
-      color: var(--muted);
-      line-height: 1.8;
-    }
+    .contact-agency { background: rgba(245,240,232,.04); border: 1px solid var(--line); padding: 2.25rem; }
+    .agency-label { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--warm); margin-bottom: 1.25rem; }
+    .agency-name { font-family: var(--serif); font-size: 1.75rem; margin-bottom: .25rem; }
+    .agency-tag { font-size: .8rem; color: var(--muted); margin-bottom: 1.5rem; font-style: italic; }
+    .agency-detail { font-size: .86rem; color: var(--muted); line-height: 1.8; }
+    .agency-detail p + p { margin-top: 1rem; }
     .agency-detail a { color: var(--warm); text-decoration: none; }
     .agency-detail a:hover { text-decoration: underline; }
 
     /* ── FOOTER ─────────────────────────────────────── */
     footer {
-      padding: 2rem 4rem;
+      padding: 2rem var(--pad);
       border-top: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
     }
-
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: .95rem;
-      color: var(--warm);
-      letter-spacing: .1em;
-    }
-
-    .footer-copy {
-      font-size: .72rem;
-      color: var(--muted);
-      letter-spacing: .08em;
-    }
+    .footer-logo { font-family: var(--serif); font-size: .95rem; color: var(--warm); letter-spacing: .1em; }
+    .footer-copy { font-size: .72rem; color: var(--muted); letter-spacing: .08em; }
+    .footer-copy a { color: var(--warm); text-decoration: none; }
 
     /* ── ANIMATIONS ─────────────────────────────────── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .7s ease, transform .7s ease;
+    .js .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .js .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .filmstrip { animation: none; }
+      .js .fade-in { opacity: 1; transform: none; transition: none; }
+      .work-card, .work-card:hover { transition: none; transform: none; }
     }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ─────────────────────────────────── */
-    @media (max-width: 900px) {
-      nav { padding: 1.25rem 1.5rem; }
-      .nav-links { gap: 1.5rem; }
+    @media (max-width: 1100px) {
+      .featured { grid-template-columns: repeat(2, 1fr); }
+      .skills { grid-template-columns: repeat(2, 1fr); }
+    }
 
-      #hero {
-        grid-template-columns: 1fr;
-        padding: 7rem 1.5rem 3rem;
-        text-align: center;
+    @media (max-width: 900px) {
+      .nav-toggle { display: inline-flex; }
+      .nav-links {
+        display: none;
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; gap: 0;
+        background: rgba(14,13,11,.97);
+        border-bottom: 1px solid var(--line);
+        padding: .5rem var(--pad) 1.25rem;
       }
+      nav.open .nav-links { display: flex; }
+      .nav-links a { display: block; padding: .9rem 0; border-bottom: 1px solid var(--line2); }
+      .nav-links a.active { border-bottom-color: var(--line2); }
+
+      #hero { grid-template-columns: 1fr; padding-top: 7rem; padding-bottom: 3rem; min-height: auto; text-align: center; }
       .hero-eyebrow { justify-content: center; }
       .hero-sub { margin: 0 auto 2rem; }
+      .hero-actions { justify-content: center; }
       .hero-visual { display: none; }
 
-      #about, .works-header, .timeline-header, #contact {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 4rem 1.5rem;
-      }
+      .split, .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .stats { grid-template-columns: repeat(2, auto); }
 
-      #works { padding: 4rem 1.5rem; }
-      .works-grid { grid-template-columns: 1fr; }
+      .filmo-row { grid-template-columns: 1fr; gap: .3rem; }
+      .filmo-prod { text-align: left; }
+    }
 
-      #parcours { padding: 4rem 1.5rem; }
-      .timeline { margin-left: 0; }
-
-      .stats { flex-wrap: wrap; gap: 1.5rem; }
-
-      footer { padding: 1.5rem; flex-direction: column; gap: .75rem; text-align: center; }
+    @media (max-width: 640px) {
+      .featured, .skills { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
+  <a class="skip" href="#about">Aller au contenu</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
   <!-- NAV -->
-  <nav>
+  <nav id="nav" aria-label="Navigation principale">
     <a href="#hero" class="nav-logo">N. Girardot</a>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Ouvrir le menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">Présentation</a></li>
       <li><a href="#works">Œuvres</a></li>
+      <li><a href="#filmo">Filmographie</a></li>
       <li><a href="#parcours">Parcours</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
-  <section id="hero">
-    <div class="hero-text fade-in">
-      <p class="hero-eyebrow">Scénariste · Autrice · Graphiste</p>
-      <h1>Nadège<br /><em>Girardot</em></h1>
-      <p class="hero-sub">
-        Vingt ans d'écriture au service de l'animation française.
-        Co-autrice de plus d'une centaine d'épisodes, de bibles littéraires
-        et de longs-métrages qui font voyager petits et grands.
-      </p>
-      <a href="#works" class="hero-cta">
-        Voir les œuvres
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
+  <header class="hero-wrap">
+    <div id="hero">
+      <div class="hero-text fade-in">
+        <p class="hero-eyebrow">Scénariste · Autrice · Graphiste</p>
+        <h1>Nadège<br /><em>Girardot</em></h1>
+        <p class="hero-sub">
+          Depuis 2001, l'écriture au service de l'animation française :
+          plus d'une centaine d'épisodes, des bibles littéraires, une direction d'écriture
+          et deux longs-métrages pour le grand écran.
+        </p>
+        <div class="hero-actions">
+          <a href="#works" class="btn">
+            Voir les œuvres
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#contact" class="btn ghost">Contact</a>
+        </div>
+      </div>
 
-    <!-- Animated filmstrip -->
-    <div class="hero-visual fade-in" style="animation-delay:.2s">
-      <div class="filmstrip">
-        <!-- Doubled for seamless loop -->
-        <div class="film-card"><p class="film-card-title">Galaktic Football</p><p class="film-card-meta">78 × 26′ · ALPHANIM · 2001–2017</p></div>
-        <div class="film-card"><p class="film-card-title">Kididoc</p><p class="film-card-meta">52 × 13′ · 4.21 Productions / Canal+ · 2021–2022</p></div>
-        <div class="film-card"><p class="film-card-title">Mouk</p><p class="film-card-meta">15 épisodes · MILLIMAGES / France 5 · 2011</p></div>
-        <div class="film-card"><p class="film-card-title">Tino</p><p class="film-card-meta">Long-métrage · PM SA · 2022–2023</p></div>
-        <div class="film-card"><p class="film-card-title">Zak &amp; Wowo, La Légende de Lendarys</p><p class="film-card-meta">Long-métrage · PM S.A. · 2019</p></div>
-        <div class="film-card"><p class="film-card-title">Tchoupi (Saison 4)</p><p class="film-card-meta">10 épisodes · LES ARMATEURS / France 5</p></div>
-        <div class="film-card"><p class="film-card-title">Crumpets</p><p class="film-card-meta">16 épisodes · 4.21 Productions / Canal+</p></div>
-        <div class="film-card"><p class="film-card-title">Anatole Latuile</p><p class="film-card-meta">10 épisodes · LABEL ANIM / France TV</p></div>
-        <!-- Duplicate for loop -->
-        <div class="film-card"><p class="film-card-title">Galaktic Football</p><p class="film-card-meta">78 × 26′ · ALPHANIM · 2001–2017</p></div>
-        <div class="film-card"><p class="film-card-title">Kididoc</p><p class="film-card-meta">52 × 13′ · 4.21 Productions / Canal+ · 2021–2022</p></div>
-        <div class="film-card"><p class="film-card-title">Mouk</p><p class="film-card-meta">15 épisodes · MILLIMAGES / France 5 · 2011</p></div>
-        <div class="film-card"><p class="film-card-title">Tino</p><p class="film-card-meta">Long-métrage · PM SA · 2022–2023</p></div>
-        <div class="film-card"><p class="film-card-title">Zak &amp; Wowo, La Légende de Lendarys</p><p class="film-card-meta">Long-métrage · PM S.A. · 2019</p></div>
-        <div class="film-card"><p class="film-card-title">Tchoupi (Saison 4)</p><p class="film-card-meta">10 épisodes · LES ARMATEURS / France 5</p></div>
-        <div class="film-card"><p class="film-card-title">Crumpets</p><p class="film-card-meta">16 épisodes · 4.21 Productions / Canal+</p></div>
-        <div class="film-card"><p class="film-card-title">Anatole Latuile</p><p class="film-card-meta">10 épisodes · LABEL ANIM / France TV</p></div>
+      <div class="hero-visual fade-in" aria-hidden="true">
+        <div class="filmstrip" id="filmstrip"></div>
       </div>
     </div>
-  </section>
+  </header>
 
+  <main>
   <!-- ABOUT -->
-  <section id="about">
-    <div class="section-label fade-in">Présentation</div>
-    <div class="about-body fade-in">
-      <h2>Une plume au service<br />de l'animation</h2>
-      <p>
-        Nadège Girardot est scénariste, autrice et directrice d'écriture spécialisée dans l'animation pour la jeunesse. Depuis 2001, elle collabore avec les plus grandes maisons de production françaises — Millimages, Canal+, France Télévisions, Alphanim — pour donner vie à des univers qui marquent les imaginaires.
-      </p>
-      <p>
-        Co-autrice de la bible littéraire et de la bible graphique de la série <em>Galaktic Football</em>, elle a développé sur trois saisons les arches narratives de ce titre culte. Elle a récemment assumé la direction d'écriture de <em>Kididoc</em> (Canal+), co-écrivant plus de 30 épisodes et structurant la vision éditoriale de la série.
-      </p>
-      <p>
-        Formée à l'Université Paris VIII (théâtre, danse) puis au scénario long-métrage (CEFPF), elle conjugue sensibilité artistique et rigueur narrative dans chacun de ses projets.
-      </p>
-      <div class="stats">
-        <div>
-          <p class="stat-num">+100</p>
-          <p class="stat-label">épisodes écrits</p>
-        </div>
-        <div>
-          <p class="stat-num">20+</p>
-          <p class="stat-label">ans d'expérience</p>
-        </div>
-        <div>
-          <p class="stat-num">2</p>
-          <p class="stat-label">longs-métrages</p>
-        </div>
-        <div>
-          <p class="stat-num">25+</p>
-          <p class="stat-label">séries différentes</p>
+  <section id="about" class="sec">
+    <div class="wrap split">
+      <div class="section-label fade-in">Présentation</div>
+      <div class="about-body fade-in">
+        <h2>Une plume au service<br />de <em>l'animation</em></h2>
+        <p>
+          Nadège Girardot est scénariste de séries d'animation depuis 2001. Autrice, directrice d'écriture
+          et ancienne graphiste, elle écrit pour la jeunesse avec des producteurs et des diffuseurs comme
+          Alphanim, Millimages, 4.21 Productions, Les Armateurs, Canal+, France Télévisions ou France 5.
+        </p>
+        <p>
+          Co-autrice de la bible littéraire et graphique de <em>Galactik Football</em> (trois saisons, 78 épisodes),
+          elle a écrit ou co-écrit une centaine d'épisodes, de <em>Mouk</em> à <em>Tchoupi</em>, de <em>Crumpets</em>
+          à <em>Anatole Latuile</em>. Directrice d'écriture de <em>Kididoc</em> (Canal+), elle en a co-écrit
+          33 épisodes avant de poursuivre avec la saison 2.
+        </p>
+        <p>
+          Au cinéma, elle a co-écrit les scénarios de <em>Zak &amp; Wowo, la légende de Lendarys</em>
+          (en salles en juillet 2024) et de <em>Tino</em>.
+        </p>
+        <p>
+          Formée aux arts appliqués, au théâtre et à la danse (Université Paris VIII), puis au scénario de
+          long-métrage (CEFPF), elle a aussi écrit pour la scène — <em>Tête de nuage</em>, présentée au Festival Off
+          d'Avignon — et animé des ateliers d'écriture et d'illustration auprès d'enfants et de femmes détenues à Amiens.
+        </p>
+        <div class="stats">
+          <div><p class="stat-num" data-target="100" data-prefix="+">+100</p><p class="stat-label">épisodes écrits</p></div>
+          <div><p class="stat-num" data-target="years">25</p><p class="stat-label">ans de métier</p></div>
+          <div><p class="stat-num" data-target="2">2</p><p class="stat-label">longs-métrages</p></div>
+          <div><p class="stat-num" data-target="20" data-prefix="+">+20</p><p class="stat-label">séries d'animation</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WORKS -->
-  <section id="works">
-    <div class="works-header">
-      <div class="section-label fade-in">Œuvres</div>
-      <div class="fade-in">
-        <h2>Filmographie<br />&amp; projets</h2>
+  <!-- MÉTIERS -->
+  <section class="sec" aria-labelledby="skills-title">
+    <div class="wrap">
+      <div class="split works-head">
+        <div class="section-label fade-in">Savoir-faire</div>
+        <div class="fade-in"><h2 id="skills-title">Quatre façons<br />de <em>raconter</em></h2></div>
+      </div>
+      <div class="skills">
+        <article class="skill fade-in">
+          <p class="skill-n">01</p>
+          <h3>Séries d'animation</h3>
+          <p>Écriture d'épisodes, pré-bibles et bibles littéraires pour le jeune public, du format 3 minutes au 26 minutes.</p>
+        </article>
+        <article class="skill fade-in">
+          <p class="skill-n">02</p>
+          <h3>Longs-métrages</h3>
+          <p>Scénarios co-écrits pour le grand écran : <em>Zak &amp; Wowo, la légende de Lendarys</em> et <em>Tino</em>.</p>
+        </article>
+        <article class="skill fade-in">
+          <p class="skill-n">03</p>
+          <h3>Direction d'écriture</h3>
+          <p>Vision éditoriale et cohérence d'un univers, de la bible aux épisodes : <em>Kididoc</em> pour Canal+.</p>
+        </article>
+        <article class="skill fade-in">
+          <p class="skill-n">04</p>
+          <h3>Image, scène &amp; transmission</h3>
+          <p>Autrice graphique (<em>Galactik Football</em>), designs, décors et story-boards, autrice de théâtre, ateliers et cours de scénario.</p>
+        </article>
       </div>
     </div>
+  </section>
 
-    <div class="works-grid">
-      <!-- CINÉMA -->
-      <div class="work-category fade-in">
-        <p class="cat-label">Cinéma – Long-Métrage</p>
-        <div class="work-item">
-          <p class="work-year">2022–2023</p>
-          <p class="work-title">Tino</p>
-          <p class="work-detail">Scénario co-écrit avec Vanessa Pancrazi · PM SA</p>
-        </div>
-        <div class="work-item">
-          <p class="work-year">2019</p>
-          <p class="work-title">Zak &amp; Wowo, La Légende de Lendarys</p>
-          <p class="work-detail">Scénario co-écrit avec Philippe Duchêne · PM S.A.</p>
-        </div>
+  <!-- FEATURED WORKS -->
+  <section id="works" class="sec" aria-labelledby="works-title">
+    <div class="wrap">
+      <div class="split works-head">
+        <div class="section-label fade-in">Œuvres</div>
+        <div class="fade-in"><h2 id="works-title">Projets<br /><em>phares</em></h2></div>
       </div>
 
-      <!-- ANIMATION RÉCENTE -->
-      <div class="work-category fade-in">
-        <p class="cat-label">Animation – Récent</p>
-        <div class="work-item">
-          <p class="work-year">En cours</p>
-          <p class="work-title">Kididoc (Saison 2)</p>
-          <p class="work-detail">4.21 Productions / Canal+</p>
-        </div>
-        <div class="work-item">
-          <p class="work-year">En cours</p>
-          <p class="work-title">Les Sapio</p>
-          <p class="work-detail">40 × 3′ · Bible littéraire · 4.21 Productions</p>
-        </div>
-        <div class="work-item">
-          <p class="work-year">2021–2022</p>
-          <p class="work-title">Kididoc</p>
-          <p class="work-detail">52 × 13′ · 33 épisodes · 4.21 Productions / Canal+</p>
-        </div>
-        <div class="work-item">
-          <p class="work-year">2020</p>
-          <p class="work-title">Pirata et Capitano (S2)</p>
-          <p class="work-detail">4 épisodes · MILLIMAGES / FTV</p>
-        </div>
+      <div class="featured">
+        <article class="work-card fade-in">
+          <p class="work-kind">Série · 3 saisons · 78 × 26′</p>
+          <h3>Galactik Football</h3>
+          <p class="work-role">Co-autrice littéraire &amp; graphique</p>
+          <p class="work-blurb">Les Snow Kids, une équipe de jeunes footballeurs de la planète Akillian, rêvent de remporter la Galactik Football Cup. Bible littéraire et un épisode co-écrits, arches narratives développées avec les créateurs Charles Barrez et Vincent Vandelli.</p>
+          <p class="work-meta">Alphanim · France Télévisions · Jetix</p>
+        </article>
+
+        <article class="work-card fade-in">
+          <p class="work-kind">Série · 52 × 13′ · Saison 2 en écriture</p>
+          <h3>Kididoc</h3>
+          <p class="work-role">Directrice d'écriture · 33 épisodes</p>
+          <p class="work-blurb">Kidi, une intelligence artificielle bienveillante, emmène Pomme et Fix dans le « Kidi-World » pour répondre à toutes leurs questions, de l'histoire des transports au Moyen Âge.</p>
+          <p class="work-meta">4.21 Productions · Canal+</p>
+        </article>
+
+        <article class="work-card fade-in">
+          <p class="work-kind">Long-métrage · en salles le 3 juillet 2024</p>
+          <h3>Zak &amp; Wowo, la légende de Lendarys</h3>
+          <p class="work-role">Scénario co-écrit avec Philippe Duchêne</p>
+          <p class="work-blurb">Quand son frère jumeau Kyle disparaît, Zak part à sa recherche avec Wowo, un pachyderme poilu, et Indiana, une hors-la-loi. Réalisé par Philippe Duchêne et Jean-Baptiste Cuvelier.</p>
+          <p class="work-meta">Scénario écrit en 2019 · PM SA</p>
+        </article>
+
+        <article class="work-card fade-in">
+          <p class="work-kind">Long-métrage · 2022–2023</p>
+          <h3>Tino</h3>
+          <p class="work-role">Scénario co-écrit avec Vanessa Pancrazi</p>
+          <p class="work-blurb">Un univers d'abord développé en pré-bible littéraire de série avec Philippe Duchêne, puis écrit pour le grand écran.</p>
+          <p class="work-meta">PM SA</p>
+        </article>
+
+        <article class="work-card fade-in">
+          <p class="work-kind">Série · 2 saisons · France 5</p>
+          <h3>Mouk</h3>
+          <p class="work-role">26 épisodes co-écrits avec Marie de Banville</p>
+          <p class="work-blurb">Deux amis à vélo parcourent le monde, d'après l'album de Marc Boutavant, <em>Le Tour du monde de Mouk à vélo</em>. Diffusée sur France 5 à partir de 2011.</p>
+          <p class="work-meta">Millimages · France 5</p>
+        </article>
+
+        <article class="work-card fade-in">
+          <p class="work-kind">Série · 13′ · France Télévisions</p>
+          <h3>Anatole Latuile</h3>
+          <p class="work-role">10 épisodes co-écrits avec Marie de Banville</p>
+          <p class="work-blurb">Adaptée de la bande dessinée de <em>J'aime lire</em>, la série suit un élève de CM1 aux idées inépuisables, toujours prêt à s'inventer une échappatoire.</p>
+          <p class="work-meta">Label Anim · France Télévisions</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILMOGRAPHY -->
+  <section id="filmo" class="sec" aria-labelledby="filmo-title">
+    <div class="wrap">
+      <div class="split works-head">
+        <div class="section-label fade-in">Filmographie</div>
+        <div class="fade-in"><h2 id="filmo-title">Filmographie<br /><em>complète</em></h2></div>
       </div>
 
-      <!-- ANIMATION CLASSIQUES -->
-      <div class="work-category fade-in">
-        <p class="cat-label">Animation – Références</p>
-        <div class="work-item">
-          <p class="work-year">2001–2017</p>
-          <p class="work-title">Galaktic Football (S1–3)</p>
-          <p class="work-detail">78 × 26′ · Bible litté. &amp; graphique · ALPHANIM / France TV / Jetix</p>
+      <div class="filters fade-in" id="filters" role="group" aria-label="Filtrer la filmographie"></div>
+      <div id="filmo-list"></div>
+      <noscript><p class="source-note">Activez JavaScript pour parcourir la filmographie, ou consultez la <a href="https://www.agence-kamaji.com/auteurs/nadege-girardot/">fiche de l'Agence Kamaji</a>.</p></noscript>
+      <p class="source-note fade-in">
+        Liste établie d'après la
+        <a href="https://www.agence-kamaji.com/auteurs/nadege-girardot/" target="_blank" rel="noopener">fiche officielle de l'Agence Kamaji</a>.
+        Les années correspondent à la période d'écriture ; les titres sans année couvrent la période 2001–2017.
+      </p>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="sec" aria-labelledby="partners-title">
+    <div class="wrap split">
+      <div class="section-label fade-in">Collaborations</div>
+      <div class="fade-in">
+        <h2 id="partners-title">Ils lui ont<br /><em>fait confiance</em></h2>
+
+        <div class="partners-block">
+          <h3>Sociétés de production</h3>
+          <ul class="partners-list" id="producers"></ul>
         </div>
-        <div class="work-item">
-          <p class="work-year">2011</p>
-          <p class="work-title">Mouk</p>
-          <p class="work-detail">15 épisodes · MILLIMAGES / France 5</p>
+        <div class="partners-block">
+          <h3>Diffuseurs</h3>
+          <ul class="partners-list" id="broadcasters"></ul>
         </div>
-        <div class="work-item">
-          <p class="work-year">—</p>
-          <p class="work-title">Tchoupi (S4) · Crumpets · Anatole Latuile</p>
-          <p class="work-detail">Plusieurs épisodes · Canal+ / France TV</p>
-        </div>
-        <div class="work-item">
-          <p class="work-year">—</p>
-          <p class="work-title">Zoolane · Mouk S2 · Grenadine et Mentalo…</p>
-          <p class="work-detail">BBC / France 5 / Canal+</p>
+        <div class="partners-block">
+          <h3>Graphisme · 1999–2006</h3>
+          <ul class="partners-list" id="studios"></ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PARCOURS -->
-  <section id="parcours">
-    <div class="timeline-header">
+  <section id="parcours" class="sec" aria-labelledby="parcours-title">
+    <div class="wrap split">
       <div class="section-label fade-in">Parcours</div>
-      <div class="fade-in"><h2>Formation<br />&amp; activités</h2></div>
-    </div>
-
-    <div class="timeline">
-      <div class="tl-item fade-in">
-        <p class="tl-year">2021 — aujourd'hui</p>
-        <p class="tl-title">Directrice d'écriture — Kididoc</p>
-        <p class="tl-desc">4.21 Productions / Canal+ · Pilotage éditorial de la série et co-écriture de 33 épisodes.</p>
-      </div>
-      <div class="tl-item fade-in">
-        <p class="tl-year">2016–2017</p>
-        <p class="tl-title">Intervenante — Université Paris VIII (ATI)</p>
-        <p class="tl-desc">Cours de scénario et suivi de projets étudiants.</p>
-      </div>
-      <div class="tl-item fade-in">
-        <p class="tl-year">2013</p>
-        <p class="tl-title">Autrice de théâtre — <em>Tête de Nuage</em></p>
-        <p class="tl-desc">Pièce créée avec la Compagnie Les Damoizailes, présentée au Festival Off d'Avignon.</p>
-      </div>
-      <div class="tl-item fade-in">
-        <p class="tl-year">2001–2006</p>
-        <p class="tl-title">Graphiste animation</p>
-        <p class="tl-desc">Designs personnages, décors, story-boards pour Gaumont Multimédia, 2 Minutes, Method Films et d'autres.</p>
-      </div>
-      <div class="tl-item fade-in">
-        <p class="tl-year">2001–2004</p>
-        <p class="tl-title">Ateliers d'écriture &amp; illustration</p>
-        <p class="tl-desc">Interventions avec des enfants et des femmes incarcérées à Amiens.</p>
-      </div>
-      <div class="tl-item fade-in">
-        <p class="tl-year">2001</p>
-        <p class="tl-title">Formation scénario long-métrage</p>
-        <p class="tl-desc">CEFPF Paris.</p>
-      </div>
-      <div class="tl-item fade-in">
-        <p class="tl-year">1993–1997</p>
-        <p class="tl-title">DEUG Théâtre + Licence Danse</p>
-        <p class="tl-desc">Université Paris VIII.</p>
-      </div>
-      <div class="tl-item fade-in">
-        <p class="tl-year">1992</p>
-        <p class="tl-title">BTS Plasticien de l'environnement architectural</p>
-        <p class="tl-desc">École Duppéré, Paris.</p>
+      <div>
+        <h2 id="parcours-title" class="fade-in">Formation<br />&amp; <em>activités</em></h2>
+        <div class="timeline">
+          <div class="tl-item fade-in">
+            <p class="tl-year">2024 — 2025</p>
+            <p class="tl-title">Kididoc saison 2 &amp; Les Sapio</p>
+            <p class="tl-desc">Écriture des épisodes de la saison 2 de <em>Kididoc</em> (4.21 Productions / Canal+) et de la bible littéraire des <em>Sapio</em> (40 × 3′), avec Vincent Tirilly.</p>
+          </div>
+          <div class="tl-item fade-in">
+            <p class="tl-year">2021 — 2022</p>
+            <p class="tl-title">Directrice d'écriture — Kididoc</p>
+            <p class="tl-desc">4.21 Productions / Canal+ · Bible littéraire, pilotage éditorial et co-écriture de 33 épisodes.</p>
+          </div>
+          <div class="tl-item fade-in">
+            <p class="tl-year">2016 — 2017</p>
+            <p class="tl-title">Intervenante — Université Paris VIII (ATI)</p>
+            <p class="tl-desc">Cours de scénario et suivi de projets étudiants.</p>
+          </div>
+          <div class="tl-item fade-in">
+            <p class="tl-year">2012</p>
+            <p class="tl-title">Autrice de théâtre — <em>Tête de nuage</em></p>
+            <p class="tl-desc">Pièce écrite pour la Compagnie Les Damoizailes, présentée au Festival Off d'Avignon.</p>
+          </div>
+          <div class="tl-item fade-in">
+            <p class="tl-year">2001 — aujourd'hui</p>
+            <p class="tl-title">Scénariste de séries d'animation</p>
+            <p class="tl-desc">Galactik Football, Mouk, Tchoupi, Crumpets, Anatole Latuile, Zoolane… pour Alphanim, Millimages, Les Armateurs, 4.21 Productions et bien d'autres.</p>
+          </div>
+          <div class="tl-item fade-in">
+            <p class="tl-year">1999 — 2006</p>
+            <p class="tl-title">Graphiste animation</p>
+            <p class="tl-desc">Créations de personnages, décors et story-boards pour Gaumont Multimédia, Sea-Horse, Antefilm, 2 Minutes, Les Films de la Perrine, Method Films et d'autres studios.</p>
+          </div>
+          <div class="tl-item fade-in">
+            <p class="tl-year">2001 — 2004</p>
+            <p class="tl-title">Ateliers d'écriture, de story-board &amp; d'illustration</p>
+            <p class="tl-desc">Interventions auprès d'enfants de quartiers d'Amiens et de femmes détenues à la prison d'Amiens.</p>
+          </div>
+          <div class="tl-item fade-in">
+            <p class="tl-year">2000 — 2003</p>
+            <p class="tl-title">Directrice artistique &amp; illustratrice</p>
+            <p class="tl-desc">Direction artistique d'un CD-ROM ludo-éducatif (Strass Production) et illustration de <em>Les aventures de Loulette</em>, texte de Florence Ernst.</p>
+          </div>
+          <div class="tl-item fade-in">
+            <p class="tl-year">2001</p>
+            <p class="tl-title">Formation au scénario de long-métrage</p>
+            <p class="tl-desc">CEFPF, Paris.</p>
+          </div>
+          <div class="tl-item fade-in">
+            <p class="tl-year">1993 — 1997</p>
+            <p class="tl-title">DEUG Théâtre &amp; Licence Danse</p>
+            <p class="tl-desc">Université Paris VIII.</p>
+          </div>
+          <div class="tl-item fade-in">
+            <p class="tl-year">1990 — 1992</p>
+            <p class="tl-title">Baccalauréat F12 arts appliqués · BTS Plasticien de l'environnement architectural</p>
+            <p class="tl-desc">Baccalauréat en 1990, puis BTS en 1992 à l'École Duperré, Paris.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-text fade-in">
-      <div class="section-label" style="margin-bottom:1.5rem">Contact</div>
-      <h2>Travailler<br />ensemble</h2>
-      <p>
-        Pour toute demande de collaboration, projet de série ou de long-métrage,
-        Nadège Girardot est représentée par l'Agence Kamaji à Paris.
-      </p>
-      <a href="https://www.agence-kamaji.com/auteurs/nadege-girardot/" target="_blank" class="hero-cta">
-        Voir la fiche Agence Kamaji
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
+  <section id="contact" class="sec" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div class="contact-text fade-in">
+        <div class="section-label" style="margin-bottom:1.5rem">Contact</div>
+        <h2 id="contact-title">Travailler<br /><em>ensemble</em></h2>
+        <p>
+          Pour toute demande de collaboration, de projet de série ou de long-métrage,
+          Nadège Girardot est représentée par l'Agence Kamaji, à Paris.
+        </p>
+        <div class="hero-actions">
+          <a href="https://www.agence-kamaji.com/contact/" target="_blank" rel="noopener" class="btn">
+            Contacter l'agence
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://www.agence-kamaji.com/wp-content/themes/kamaji/cv-pdf.php?id=3211" target="_blank" rel="noopener" class="btn ghost">Télécharger le CV</a>
+        </div>
+      </div>
 
-    <div class="contact-agency fade-in">
-      <p class="agency-label">Représentation</p>
-      <p class="agency-name">Agence Kamaji</p>
-      <div class="agency-detail">
-        <p>63 rue de Chabrol<br />75010 Paris</p>
-        <br/>
-        <p>
-          <a href="tel:+33688478346">+33 (0)6 88 47 83 46</a><br />
-          <a href="https://www.agence-kamaji.com" target="_blank">www.agence-kamaji.com</a>
-        </p>
-        <br/>
-        <p>
-          Retrouvez Nadège Girardot sur
-          <a href="https://www.imdb.com/name/nm1164806/" target="_blank">IMDb</a>
-          &amp;
-          <a href="https://www.unifrance.org/annuaires/personne/491468/nadege-girardot" target="_blank">UniFrance</a>
-        </p>
+      <div class="contact-agency fade-in">
+        <p class="agency-label">Représentation</p>
+        <p class="agency-name">Agence Kamaji</p>
+        <p class="agency-tag">L'agence artistique des auteurs de l'animation</p>
+        <div class="agency-detail">
+          <p>
+            <a href="https://maps.app.goo.gl/9xG6Qw5aGuMmyUv99" target="_blank" rel="noopener">63 rue de Chabrol<br />75010 Paris</a>
+          </p>
+          <p>
+            <a href="tel:+33688478346">+33 (0)6 88 47 83 46</a><br />
+            <a href="https://www.agence-kamaji.com" target="_blank" rel="noopener">www.agence-kamaji.com</a>
+          </p>
+          <p>
+            Fiche de Nadège Girardot :
+            <a href="https://www.agence-kamaji.com/auteurs/nadege-girardot/" target="_blank" rel="noopener">Agence Kamaji</a> ·
+            <a href="https://www.imdb.com/name/nm1164806/" target="_blank" rel="noopener">IMDb</a> ·
+            <a href="https://www.unifrance.org/annuaires/personne/491468/nadege-girardot" target="_blank" rel="noopener">UniFrance</a>
+          </p>
+        </div>
       </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
     <span class="footer-logo">Nadège Girardot</span>
-    <span class="footer-copy">© 2025 · Scénariste &amp; Autrice · Animation française</span>
+    <span class="footer-copy">© <span id="year">2026</span> · Scénariste &amp; Autrice · Animation française</span>
   </footer>
 
   <script>
-    // Intersection Observer for fade-in animations
-    const observer = new IntersectionObserver((entries) => {
+    /* ── DATA ───────────────────────────────────────────
+       Source : fiche de l'Agence Kamaji.
+       Chaque ligne : [titre, année, détail, production / diffuseur, étiquette] */
+    const GROUPS = [
+      {
+        id: 'film', label: 'Longs-métrages', title: 'Cinéma — longs-métrages',
+        items: [
+          ['Tino', '2022–2023', 'Scénario co-écrit avec Vanessa Pancrazi', 'PM SA'],
+          ['Zak & Wowo, la légende de Lendarys', '2019', 'Scénario co-écrit avec Philippe Duchêne · en salles le 3 juillet 2024', 'PM SA'],
+        ]
+      },
+      {
+        id: 'recent', label: 'Séries récentes', title: 'Séries — projets récents · 2018–2025',
+        items: [
+          ['Kididoc — saison 2', '2024–2025', '13′ · épisodes en écriture', '4.21 Productions / Canal+'],
+          ['Les Sapio', '2024–2025', '40 × 3′ · bible littéraire en écriture avec Vincent Tirilly, 1er épisode co-écrit avec lui', '4.21 Productions'],
+          ['Trop bon', '2023', 'Série magazine · bible littéraire co-écrite avec Vincent Tirilly', 'Gedeon Programmes'],
+          ['Kididoc', '2021–2022', '13′ · bible littéraire, direction d’écriture, 33 épisodes', '4.21 Productions / Canal+', 'Direction d’écriture'],
+          ['The Little Yoga School', '2021–2022', 'Bible littéraire co-écrite avec Philippe Duchêne', 'Summertime'],
+          ['Pirata et Capitano — saison 2', '2020', '13′ · 4 épisodes', 'Millimages / France Télévisions'],
+          ['Série de fiction (sans titre)', '2020', '6 × 52′ · bible littéraire, arches narratives et 1er épisode en co-écriture', ''],
+          ['Les Sans Peurs', '2018', '52 × 13′ · apport au concept, développement de la bible, épisode de développement', '2 Minutes'],
+          ['Toumi', '2018', '26 × 26′ · pré-bible littéraire co-écrite avec Giacchino Maurici, Éric Lopez et Christophe Guignement', 'PM SA'],
+          ['Hugo et le secret des mots', '2018', '52 × 13′ · bible littéraire et 1er épisode co-écrits avec Philippe Duchêne, Anne-Marie Gaignard et David Alloyeau', 'Crazy Watts Productions'],
+        ]
+      },
+      {
+        id: 'bible', label: 'Bibles', title: 'Séries — bibles & premiers épisodes · 2001–2017',
+        items: [
+          ['Galactik Football — saisons 1 à 3', '', '78 × 26′ · bible littéraire et 1er épisode co-écrits avec Guillaume Mautalent et Sébastien Oursel · arches narratives avec Charles Barrez et Vincent Vandelli · co-autrice graphique', 'Alphanim / France Télévisions / Jetix', 'Série phare'],
+          ['Les Exploratoons', '', '52 × 13′ · pré-bible co-écrite avec Stéphane Berry, 1er épisode', 'Sunset Studio'],
+          ['Amos Daragon', '', '26 × 26′ · pré-bible littéraire', 'Sunset Studio'],
+          ['Tino (série)', '', 'Pré-bible littéraire co-écrite avec Philippe Duchêne', 'PM SA'],
+          ['Petit à Petit', '', 'Concept littéraire développé à partir du projet original de Sabine Hittier', '2 Minutes'],
+        ]
+      },
+      {
+        id: 'ep', label: 'Épisodes', title: 'Séries — épisodes écrits · 2001–2017',
+        items: [
+          ['Mouk — saisons 1 et 2', '', '15 + 11 épisodes co-écrits avec Marie de Banville · 13′', 'Millimages / France 5'],
+          ['Crumpets', '', '16 épisodes (6 avec Éric Ducher, 10 avec Marie de Banville) + 2 épisodes en saison 2 · 13′', '4.21 Productions / Canal+'],
+          ['Tchoupi — saison 4', '', '10 épisodes co-écrits avec Marie de Banville · 13′', 'Les Armateurs / France 5'],
+          ['Anatole Latuile', '', '10 épisodes co-écrits avec Marie de Banville · 13′', 'Label Anim / France Télévisions'],
+          ['Zoolane', '', '8 épisodes co-écrits avec Marie de Banville · 7′', 'Millimages / BBC'],
+          ['Grenadine et Mentalo', '', '6 épisodes co-écrits avec Marie de Banville · 7′', 'Patoon'],
+          ['Pirata et Capitano', '', '4 épisodes co-écrits avec Marie de Banville · 11′', 'Millimages / France 5'],
+          ['Plankton Invasion', '', '4 épisodes co-écrits avec Marie de Banville · 7′', 'Teamto / Canal+'],
+          ['Blaireaux et Renards', '', 'Épisodes · 13′', 'Dargaud Media / France 5'],
+          ['Les Enquêtes de Mirette', '', '2 épisodes co-écrits avec Marie de Banville · 13′', 'Patoon / Cyber Group Studios / TF1'],
+          ['César et Capucine', '', '2 épisodes co-écrits avec Marie de Banville · 13′', 'Futurikon / France 5'],
+          ['Mini-Loup — saison 2', '', '1 épisode co-écrit avec Marie de Banville · 13′', 'Ouido Productions / Canal+'],
+        ]
+      }
+    ];
+
+    const HERO_CARDS = [
+      ['Galactik Football', '78 × 26′ · Alphanim / France TV / Jetix'],
+      ['Kididoc', '52 × 13′ · 4.21 Productions / Canal+'],
+      ['Zak & Wowo, la légende de Lendarys', 'Long-métrage · en salles en juillet 2024'],
+      ['Tino', 'Long-métrage · PM SA · 2022–2023'],
+      ['Mouk', 'Millimages / France 5 · 26 épisodes'],
+      ['Tchoupi (saison 4)', '10 épisodes · Les Armateurs / France 5'],
+      ['Crumpets', '16 épisodes · 4.21 Productions / Canal+'],
+      ['Anatole Latuile', '10 épisodes · Label Anim / France TV'],
+    ];
+
+    const PRODUCERS = ['Alphanim', '4.21 Productions', 'Millimages', 'Les Armateurs', '2 Minutes', 'Label Anim', 'Patoon', 'Futurikon', 'Sunset Studio', 'Dargaud Media', 'Teamto', 'Ouido Productions', 'Gedeon Programmes', 'Summertime', 'Crazy Watts Productions', 'PM SA'];
+    const BROADCASTERS = ['Canal+', 'France 5', 'France Télévisions', 'TF1', 'Jetix', 'BBC'];
+    const STUDIOS = ['Gaumont Multimédia', 'Sea-Horse', 'Antefilm', '2 Minutes', 'Les Films de la Perrine', 'Method Films'];
+
+    /* ── RENDER ─────────────────────────────────────── */
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+    // Hero filmstrip (liste doublée pour une boucle continue)
+    const cardHTML = ([t, m]) =>
+      `<div class="film-card"><p class="film-card-title">${esc(t)}</p><p class="film-card-meta">${esc(m)}</p></div>`;
+    document.getElementById('filmstrip').innerHTML = HERO_CARDS.concat(HERO_CARDS).map(cardHTML).join('');
+
+    // Filmographie
+    const listEl = document.getElementById('filmo-list');
+    const filtersEl = document.getElementById('filters');
+
+    listEl.innerHTML = GROUPS.map(g => `
+      <div class="filmo-group" data-group="${g.id}">
+        <h3>${esc(g.title)}</h3>
+        ${g.items.map(([t, y, d, p, tag]) => `
+          <div class="filmo-row">
+            <p class="filmo-year">${esc(y)}</p>
+            <div>
+              <p class="filmo-title">${esc(t)}${tag ? `<span class="tag">${esc(tag)}</span>` : ''}</p>
+              <p class="filmo-detail">${esc(d)}</p>
+            </div>
+            <p class="filmo-prod">${esc(p)}</p>
+          </div>`).join('')}
+      </div>`).join('');
+
+    const total = GROUPS.reduce((n, g) => n + g.items.length, 0);
+    const chips = [{ id: 'all', label: 'Tout', n: total }].concat(GROUPS.map(g => ({ id: g.id, label: g.label, n: g.items.length })));
+    filtersEl.innerHTML = chips.map((c, i) =>
+      `<button type="button" class="chip" data-filter="${c.id}" aria-pressed="${i === 0}">${esc(c.label)}<small>${c.n}</small></button>`).join('');
+
+    filtersEl.addEventListener('click', e => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      const f = btn.dataset.filter;
+      filtersEl.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      listEl.querySelectorAll('.filmo-group').forEach(g => {
+        g.hidden = !(f === 'all' || g.dataset.group === f);
+      });
+    });
+
+    // Collaborations
+    const fill = (id, arr) => { document.getElementById(id).innerHTML = arr.map(n => `<li>${esc(n)}</li>`).join(''); };
+    fill('producers', PRODUCERS);
+    fill('broadcasters', BROADCASTERS);
+    fill('studios', STUDIOS);
+
+    // Année du pied de page
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ── NAV ────────────────────────────────────────── */
+    const nav = document.getElementById('nav');
+    const navToggle = document.getElementById('navToggle');
+    navToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Barre de progression
+    const progress = document.getElementById('progress');
+    const onScroll = () => {
+      const h = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%';
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── OBSERVERS ──────────────────────────────────── */
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Compteurs animés
+    const counters = document.querySelectorAll('.stat-num');
+    counters.forEach(el => {
+      el.dataset.final = el.dataset.target === 'years'
+        ? String(new Date().getFullYear() - 2001)
+        : el.dataset.target;
+      el.textContent = (el.dataset.prefix || '') + el.dataset.final;
+    });
+    const countUp = el => {
+      const end = +el.dataset.final, prefix = el.dataset.prefix || '';
+      if (reduceMotion) return;
+      const t0 = performance.now(), dur = 1200;
+      const step = now => {
+        const p = Math.min((now - t0) / dur, 1);
+        el.textContent = prefix + Math.round(end * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    const fadeObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        entry.target.querySelectorAll('.stat-num').forEach(countUp);
+        obs.unobserve(entry.target);
       });
     }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // Lien actif dans la navigation
+    const links = [...document.querySelectorAll('.nav-links a')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(s => spy.observe(s));
   </script>
 </body>
 </html>
